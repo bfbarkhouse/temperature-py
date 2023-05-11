@@ -1,0 +1,33 @@
+    <!-- index.html -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Temperature Conversion</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    </head>
+    <body>
+    <section class="section">
+    <div class="container">
+        <h1 class="title">Temperature Conversion</h1>
+        <!-- <p class="subtitle"><form method="POST" action="/input"> -->
+            <p class="subtitle"><form method="POST">
+            <input type="text" name="user_input"><br>
+            <input type="radio" name="unit" id="celsius" value="celsius"> Convert to Celsius </input>
+            <input type="radio" name="unit" id="fahrenheit" value="fahrenheit"> Convert to Fahrenheit </input><br>
+            <input type="submit" name="submit" value="Convert" onclick="document.getElementById('results').style.display = 'block' ;">
+        </form>
+        </p>
+    </div>
+    </section>
+    <section class="section">       
+        <div class="container" id="results" style="display: none">
+            <h1 class="title">Results</h1>
+            <p class="subtitle">
+              {{ input }} {{ from_unit }} is {{ result }} in {{ to_unit }} 
+            </p>
+        </div>
+    </section>
+    </body>
+    </html>
