@@ -16,16 +16,16 @@
             <input type="text" name="user_input"><br>
             <input type="radio" name="unit" id="celsius" value="celsius"> Convert to Celsius </input>
             <input type="radio" name="unit" id="fahrenheit" value="fahrenheit"> Convert to Fahrenheit </input><br>
-            <input type="submit" name="submit" value="Convert" onclick="document.getElementById('results').style.display = 'block' ;">
+            <input type="submit" name="submit" value="Convert">
         </form>
         </p>
     </div>
     </section>
     <section class="section">       
-        <div class="container" id="results" style="display: none">
-            <h1 class="title">Results</h1>
+        <div class="container">
+            <h1 class="title">{{title}}</h1>
             <p class="subtitle">
-              {{ input }} {{ from_unit }} is {{ result }} in {{ to_unit }} 
+              {{input}} {{from_unit}} {{result}} {{to_unit}} 
             </p>
         </div>
     </section>

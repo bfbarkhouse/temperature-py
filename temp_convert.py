@@ -53,7 +53,7 @@ def convert_to_celsius(user_input):
     celsius = (celsius - 32) / 1.8
     celsius = '{:.1f}'.format(celsius)
     #return f'{user_input} Fahrenheit is {celsius} Celsius'
-    return render_template('index.html', input=user_input, from_unit='Fahrenheit', to_unit='Celsius', result=celsius)
+    return render_template('index.html', title='Results', input=user_input, from_unit='Fahrenheit is', to_unit='in Celsius', result=celsius)
 
 def convert_to_fahrenheit(user_input):
     #user_input = request.form['user_input']   
@@ -61,7 +61,7 @@ def convert_to_fahrenheit(user_input):
     fahrenheit = (fahrenheit * 9/5) + 32
     fahrenheit = '{:.1f}'.format(fahrenheit)
     #return f'{user_input} Celsius is {fahrenheit} Fahrenheit'
-    return render_template('index.html', input=user_input, from_unit='Celsius', to_unit='Fahrenheit', result=fahrenheit)
+    return render_template('index.html', title='Results', input=user_input, from_unit='Celsius is', to_unit=' in Fahrenheit', result=fahrenheit)
 
 if __name__ == '__main__':
     app.run()
