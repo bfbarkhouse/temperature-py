@@ -164,4 +164,4 @@ example.log
 /terraform/.*
 /terraform/*.tfstate
 /terraform/gh_pat.txt
-terraform/terraform.tfstate.backup
+/terraform/terraform.tfstate.backup
