@@ -12,6 +12,12 @@ provider "azurerm" {
   features {}
 }
 
+variable "pat" {
+  type = string
+  sensitive = true
+  
+}
+
 # Create the resource group
 resource "azurerm_resource_group" "rg" {
   name     = "bfb-webapp-rg1"
@@ -41,11 +47,16 @@ resource "azurerm_linux_web_app" "webapp" {
   }
 }
 
+resource "azurerm_source_control_token" "source_control_token" {
+  type  = "GitHub"
+  token = var.pat
+}
 #  Deploy code from a public GitHub repo
 resource "azurerm_app_service_source_control" "sourcecontrol" {
   app_id             = azurerm_linux_web_app.webapp.id
   repo_url           = "https://github.com/bfbarkhouse/temperature-py"
-  branch             = "master"
+  branch             = "main"
   use_manual_integration = false
   use_mercurial      = false
+  depends_on = [ azurerm_source_control_token.source_control_token ]
 }
