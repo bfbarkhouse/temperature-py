@@ -8,26 +8,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     </head>
     <body>
-    <section class="section">
-    <div class="container">
-        <h1 class="title">Temperature Conversion</h1>
-        <!-- <p class="subtitle"><form method="POST" action="/input"> -->
-            <p class="subtitle"><form method="POST">
-            <input type="text" name="user_input"><br>
-            <input type="radio" name="unit" id="celsius" value="celsius"> Convert to Celsius </input>
-            <input type="radio" name="unit" id="fahrenheit" value="fahrenheit"> Convert to Fahrenheit </input><br>
-            <input type="submit" name="submit" value="Convert">
-        </form>
-        </p>
+    <section class="hero is-small is-primary">
+    <div class="hero-body">
+        <p class="title">Temperature Conversion</p>
     </div>
+    </section>
+    <section class="section">
+        <div class="container">
+        <!-- <p class="subtitle"><form method="POST" action="/input"> -->
+            <h2 class="subtitle">Enter a number to convert
+                <form method="POST">
+                    <input type="text" name="user_input"><br>
+                    <input type="radio" name="unit" id="celsius" value="celsius"> Convert to Celsius </input>
+                    <input type="radio" name="unit" id="fahrenheit" value="fahrenheit"> Convert to Fahrenheit </input><br><br>
+                    <input type="submit" name="submit" value="Convert" button class="button is-primary">
+                </form>
+            </h2>
+            <!-- </p> -->
+        </div>
     </section>
     <section class="section">       
         <div class="container">
+            <div class={{result_container}}>
             <h1 class="title">{{title}}</h1>
             <p class="subtitle">
               {{input}} {{from_unit}} {{result}} {{to_unit}}
               {{error}} 
             </p>
+        </div>
         </div>
     </section>
     </body>
