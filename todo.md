@@ -1,2 +1,2 @@
-Package into a container image
-Set up a pipeline to push to AKS
+Pull in realtime weather data
+Allow user to convert between units

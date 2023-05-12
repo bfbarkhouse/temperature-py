@@ -165,3 +165,4 @@ example.log
 /terraform/*.tfstate
 /terraform/gh_pat.txt
 /terraform/terraform.tfstate.backup
+output.html
