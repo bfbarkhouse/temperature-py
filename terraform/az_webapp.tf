@@ -66,5 +66,5 @@ resource "azurerm_app_service_source_control" "sourcecontrol" {
   branch             = "main"
   use_manual_integration = false
   #use_mercurial      = false
-  #depends_on = [ azurerm_source_control_token.source_control_token ]
+  depends_on = [ azurerm_source_control_token.source_control_token ]
 }
