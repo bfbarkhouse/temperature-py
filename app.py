@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template
 import logging
 import requests
-import json
+#import json
 
 app = Flask(__name__)
 logging.basicConfig(filename='temp_convert.log', encoding='utf-8', level=logging.DEBUG)
@@ -9,7 +9,7 @@ logging.basicConfig(filename='temp_convert.log', encoding='utf-8', level=logging
 def getWeather():
     #get user location?
     #load weather from API
-    weather_data = requests.get("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&timezone=GMT&forecast_days=1&daily=temperature_2m_max,temperature_2m_min")
+    weather_data = requests.get("https://api.open-meteo.com/v1/forecast?latitude=43.01&longitude=-71.42&timezone=GMT&forecast_days=1&daily=temperature_2m_max,temperature_2m_min")
     print(f'Response from weather API: {weather_data.status_code}')
     #parse max and min temps
     global day_max
