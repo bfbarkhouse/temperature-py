@@ -43,4 +43,5 @@ def convert_to_fahrenheit(user_input, ip_addr):
     return render_template('index.html', title='Results', input=user_input, from_unit='Celsius is', to_unit=' in Fahrenheit', result_container='notification is-primary', result=fahrenheit)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
+    #app.run(debug=True)
