@@ -14,6 +14,7 @@ def results():
     ip_addr = request.environ.get('HTTP_X_FORWARDED_FOR', request.remote_addr)
     if not user_input:
         logging.info('Request from %s did not enter a number', ip_addr)
+        print('Request from %s did not enter a number', ip_addr)
         return render_template('index.html', result_container='notification is-primary', error='Please enter a number.')
     else:
         if request.form["unit"] == "celsius":
@@ -23,13 +24,15 @@ def results():
 
 def convert_to_celsius(user_input, ip_addr): 
     logging.info('User at %s entered %s', ip_addr, user_input)
+    print('User at %s entered %s', ip_addr, user_input)
     celsius = float(user_input)
     celsius = (celsius - 32) / 1.8
     celsius = '{:.1f}'.format(celsius)
     return render_template('index.html', title='Results', input=user_input, from_unit='Fahrenheit is', to_unit='in Celsius', result_container='notification is-primary', result=celsius)
 
 def convert_to_fahrenheit(user_input, ip_addr):
-    logging.info('User at %s entered %s', ip_addr, user_input)  
+    logging.info('User at %s entered %s', ip_addr, user_input)
+    print('User at %s entered %s', ip_addr, user_input)  
     fahrenheit = float(user_input)
     fahrenheit = (fahrenheit * 9/5) + 32
     fahrenheit = '{:.1f}'.format(fahrenheit)

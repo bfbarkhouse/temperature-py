@@ -45,6 +45,11 @@ resource "azurerm_linux_web_app" "webapp" {
     use_32_bit_worker = true
     always_on = false
   }
+  logs {
+    application_logs {
+      file_system_level = "Verbose"
+    }
+  }
 }
 
 resource "azurerm_source_control_token" "source_control_token" {
