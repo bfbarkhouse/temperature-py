@@ -3,7 +3,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 3.0.0"
+      version = "3.56.0"
     }
   }
   required_version = ">= 0.14.9"
@@ -65,6 +65,6 @@ resource "azurerm_app_service_source_control" "sourcecontrol" {
   repo_url           = "https://github.com/bfbarkhouse/temperature-py"
   branch             = "main"
   use_manual_integration = false
-  use_mercurial      = false
-  depends_on = [ azurerm_source_control_token.source_control_token ]
+  #use_mercurial      = false
+  #depends_on = [ azurerm_source_control_token.source_control_token ]
 }
