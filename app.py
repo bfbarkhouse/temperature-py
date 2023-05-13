@@ -21,12 +21,12 @@ def getWeather():
     print(day_max, day_min, day_unit)
     return(day_max, day_min, day_unit)
 
-@app.route('/')
+@app.get('/')
 def home():
     getWeather()
     return render_template('index.html', day_max=day_max, day_min=day_min, daily_unit=day_unit)
     
-@app.route('/', methods=['POST'])
+@app.post('/') #, methods=['POST'])
 def results():
     user_input = request.form['user_input']
     ip_addr = request.environ.get('HTTP_X_FORWARDED_FOR', request.remote_addr)
