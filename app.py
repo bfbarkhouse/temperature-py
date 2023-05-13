@@ -11,7 +11,7 @@ def getWeather():
     #load weather from API
     weather_data = requests.get("https://api.open-meteo.com/v1/forecast?latitude=43.01&longitude=-71.42&timezone=GMT&forecast_days=1&daily=temperature_2m_max,temperature_2m_min")
     print(f'Response from weather API: {weather_data.status_code}')
-    #parse max and min temps
+    #parse max and min temps and populate global variables
     global day_max
     day_max = str(weather_data.json()['daily']['temperature_2m_max']).strip('[]')
     global day_min
@@ -28,7 +28,6 @@ def home():
     
 @app.route('/', methods=['POST'])
 def results():
-    #getWeather()
     user_input = request.form['user_input']
     ip_addr = request.environ.get('HTTP_X_FORWARDED_FOR', request.remote_addr)
     if not user_input:

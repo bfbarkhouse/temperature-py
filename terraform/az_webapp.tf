@@ -42,8 +42,8 @@ resource "azurerm_linux_web_app" "webapp" {
   https_only            = true
     site_config { 
       minimum_tls_version = "1.2"
-    #use_32_bit_worker = true
-    #always_on = false
+    #use_32_bit_worker = true #required if SKU is F1
+    #always_on = false #required if SKU is F1
         application_stack {
         python_version = "3.9"
         }  
@@ -65,6 +65,6 @@ resource "azurerm_app_service_source_control" "sourcecontrol" {
   repo_url           = "https://github.com/bfbarkhouse/temperature-py"
   branch             = "main"
   use_manual_integration = false
-  #use_mercurial      = false
+  #use_mercurial      = false #Setting this causes apply to error out
   depends_on = [ azurerm_source_control_token.source_control_token ]
 }
